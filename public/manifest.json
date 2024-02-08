@@ -1,0 +1,13 @@
+{
+  "name": "Youtube transcript extractor",
+  "version": "1.0.0",
+  "description": "extracts transcript from youtube video and displays them",
+  "manifest_version": 3,
+  "author": "Richard Arthur",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Youtube transcript extractor"
+  },
+  "permissions": ["tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"]
+}
