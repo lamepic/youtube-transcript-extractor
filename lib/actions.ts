@@ -5,9 +5,15 @@ export async function getTrascript(url: string) {
     const value = new URL(url);
     const videoId = value.searchParams.get("v");
 
-    const res = await fetch(`http://localhost:3000/api?video_id=${videoId}`);
-    const data = await res.json();
-    return data;
+    if (videoId) {
+      const res = await fetch(
+        `${process.env.SITE_URL}/api?video_id=${videoId}`
+      );
+      const data = await res.json();
+      return data;
+    }
+
+    throw new Error("Invalid URL");
   } catch (error) {
     throw new Error(JSON.stringify({ message: "Could not fetch Transcript" }));
   }
