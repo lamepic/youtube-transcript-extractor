@@ -10,17 +10,22 @@ from youtube_transcript_api.formatters import TextFormatter
 class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        parsed_url = urlparse(self.path)
-        query_params = parse_qs(parsed_url.query)
+        try:
+            parsed_url = urlparse(self.path)
+            query_params = parse_qs(parsed_url.query)
+            video_id = query_params["video_id"][0]
+            transcript = self._get_video_transcript(video_id)
 
-        video_id = query_params["video_id"][0]
-
-        transcript = self._get_video_transcript(video_id)
-
-        self.send_response(200)
-        self.send_header("Content-Type", "application/json")
-        self.end_headers()
-        self.wfile.write(json.dumps({"data": transcript}).encode("utf-8"))
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps({"data": transcript}).encode("utf-8"))
+        except Exception:
+            self.send_response(500)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps(
+                {"message": "Server Error"}).encode("utf-8"))
         return
 
     def _get_video_transcript(self, video_id):
