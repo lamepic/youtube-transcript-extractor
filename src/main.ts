@@ -24,10 +24,18 @@ if (video_id) {
   const p = document.createElement("p");
   p.innerHTML = "No Transcript found on this page.";
   app?.appendChild(p);
+  const res = await getCurrentTab();
+  console.log(res);
 }
 
 async function fetchTranscript(video_id: string) {
   const res = await fetch(`http://localhost:3000/api?video_id=${video_id}`);
   const data = await res.json();
   return data;
+}
+
+async function getCurrentTab() {
+  let queryOptions = { active: true, lastFocusedWindow: true };
+  let result = await chrome.tabs?.query(queryOptions);
+  return result;
 }

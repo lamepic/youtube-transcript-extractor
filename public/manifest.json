@@ -8,6 +8,6 @@
     "default_popup": "index.html",
     "default_title": "Youtube transcript extractor"
   },
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "activeTab"],
   "host_permissions": ["http://*/*", "https://*/*"]
 }

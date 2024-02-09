@@ -212,6 +212,11 @@
   resolved "https://registry.yarnpkg.com/@types/har-format/-/har-format-1.2.15.tgz#f352493638c2f89d706438a19a9eb300b493b506"
   integrity sha512-RpQH4rXLuvTXKR0zqHq3go0RVXYv/YVqv4TnPH95VbwUxZdQlK1EtcMvQvMpDngHbt13Csh9Z4qT9AbkiQH5BA==
 
+chrome-types@^0.1.262:
+  version "0.1.262"
+  resolved "https://registry.yarnpkg.com/chrome-types/-/chrome-types-0.1.262.tgz#8a5b2c9365f0c3c0455d856f867741826706f872"
+  integrity sha512-P7lbZoGc9jVjV9gVvb6978LITAwozaGErN+DQo7CIMIAycklRv2wT1W9QHJ8bAFI2IL615nKfEDN/v49dsA4MQ==
+
 esbuild@^0.19.3:
   version "0.19.12"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.19.12.tgz#dc82ee5dc79e82f5a5c3b4323a2a641827db3e04"
