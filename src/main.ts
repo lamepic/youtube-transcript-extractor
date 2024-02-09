@@ -8,7 +8,7 @@ loader.innerHTML = "Loading...";
 
 const url = new URL(window.location.href);
 const video_id = url.searchParams.get("v");
-console.log(window.location.href);
+
 if (video_id) {
   app?.appendChild(button);
 
