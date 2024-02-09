@@ -8,7 +8,7 @@ export default function Home() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,18 +20,19 @@ export default function Home() {
     } catch (error: any) {
       const { message } = JSON.parse(error.message);
       setError(message);
+      setData(null);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <main className="h-screen w-7/12 mx-auto flex flex-col items-center justify-center gap-10">
+    <main className="h-screen w-8/12 mx-auto flex flex-col items-center justify-center gap-10">
       <h1 className="mt-16 text-center text-4xl font-semibold">
         Youtube Trascript Extractor
       </h1>
 
-      <form className="w-10/12" onSubmit={handleSubmit}>
+      <form className="w-8/12" onSubmit={handleSubmit}>
         <div className="border flex items-center overflow-hidden rounded-md">
           <label htmlFor="url" className="p-3 bg-slate-50 border-r">
             URL
