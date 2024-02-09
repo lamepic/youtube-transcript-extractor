@@ -13,6 +13,7 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
     try {
       const data = await getTrascript(url);
       setData(data.data);
