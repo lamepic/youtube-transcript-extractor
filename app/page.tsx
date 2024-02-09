@@ -41,7 +41,7 @@ export default function Home() {
             className="w-full outline-1 outline-slate-400 py-3 pl-1"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            placeholder="https://www.youtube.com/watch?v=abc&t=123"
+            placeholder="https://www.youtube.com/watch?v=abc"
           />
           <button
             className="py-3 px-5 border-l bg-green-600 text-white"
