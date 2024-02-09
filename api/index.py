@@ -20,6 +20,7 @@ class handler(BaseHTTPRequestHandler):
             self.send_header("Content-Type", "application/json")
             self.end_headers()
             self.wfile.write(json.dumps({"data": transcript}).encode("utf-8"))
+            return
         except Exception:
             self.send_response(500)
             self.send_header("Content-Type", "application/json")
