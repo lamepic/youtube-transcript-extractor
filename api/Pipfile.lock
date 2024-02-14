@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "60f149fb9038f64d0c0fb52bdee808b07f7c9f52c3a7ff575e91f3c6280e95be"
+            "sha256": "c8a52c441e9dbccc53fa43483e71f61e8b69068f628a45ddc00775b31583c71d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -128,11 +128,29 @@
             "markers": "python_version >= '3.5'",
             "version": "==3.6"
         },
+        "nlpcloud": {
+            "hashes": [
+                "sha256:36636ed517fa98df90f0576978d610e74f24b2a90857ba0ea7c0ab943375a8f5",
+                "sha256:600d5249fef0f547fa6e814ed1e063a2b6593b4f476fcb581f18257c4e2dda4d"
+            ],
+            "index": "pypi",
+            "version": "==1.1.46"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca",
+                "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==1.0.1"
+        },
         "requests": {
             "hashes": [
                 "sha256:58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f",
                 "sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.7'",
             "version": "==2.31.0"
         },
