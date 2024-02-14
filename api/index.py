@@ -26,7 +26,7 @@ class handler(BaseHTTPRequestHandler):
             post_body = json.loads(self.rfile.read(content_len))
 
             summarized_text = client.summarization(
-                json.dumps({"text": post_body.get("text")}))
+                json.dumps({"text": post_body.get("text")[:9000]}))
 
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -35,7 +35,6 @@ class handler(BaseHTTPRequestHandler):
                 {"data": summarized_text.get("summary_text")}).encode("utf-8"))
             return
         except Exception as err:
-            print(err)
             self.send_response(500)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
