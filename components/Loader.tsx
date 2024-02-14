@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function Loader() {
   return (
-    <div className="h-[80%] grid place-items-center">
+    <div className="h-full grid place-items-center">
       <Image
         src="/three-dots.svg"
         className="h-20 w-20"
