@@ -18,3 +18,19 @@ export async function getTrascript(url: string) {
     throw new Error(JSON.stringify({ message: "Could not fetch Transcript" }));
   }
 }
+
+export async function getTextSummary(text: string) {
+  try {
+    const res = await fetch(`${process.env.SITE_URL}/api`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text }),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    throw new Error(JSON.stringify({ message: "Could not Summarize Text" }));
+  }
+}
