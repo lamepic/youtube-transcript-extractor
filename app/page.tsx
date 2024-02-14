@@ -3,8 +3,10 @@
 import React, { useState } from "react";
 import { getTextSummary, getTrascript } from "@/lib/actions";
 import Loader from "@/components/Loader";
+import { useToast } from "@chakra-ui/react";
 
 export default function Home() {
+  const toast = useToast();
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -35,7 +37,13 @@ export default function Home() {
       setData(result.data);
       setSummarized(true);
     } catch (error) {
-      console.log(error);
+      toast({
+        title: "Error",
+        description: "Unable to summarize text at this time. Try again later",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
     } finally {
       setLoading(false);
     }
@@ -78,13 +86,18 @@ export default function Home() {
           {loading ? <Loader /> : <p>{data}</p>}
         </div>
         {!summarized && (
-          <button
-            className="p-2 w-full bg-green-600/90 text-white shadow-sm disabled:bg-slate-400/50 disabled:cursor-not-allowed"
-            disabled={data ? false : true}
-            onClick={handleSummarize}
-          >
-            Summarize
-          </button>
+          <>
+            <button
+              className="p-2 w-full bg-green-600/90 text-white shadow-sm disabled:bg-slate-400/50 disabled:cursor-not-allowed"
+              disabled={!loading && data ? false : true}
+              onClick={handleSummarize}
+            >
+              Summarize
+            </button>
+            <span className="text-sm text-center text-gray-400">
+              Summarized results may be inaccurate
+            </span>
+          </>
         )}
       </div>
     </main>
