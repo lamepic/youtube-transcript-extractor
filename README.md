@@ -20,7 +20,7 @@ Requirements for the software and other tools to build, test and push
 ```
     git clone https://github.com/iaincollins/nextjs-starter.git
     npm install
-    npm run dev
+    npm run dev-function
 ```
 
 ## Deployment
