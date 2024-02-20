@@ -50,12 +50,12 @@ export default function Home() {
   };
 
   return (
-    <main className="h-screen w-8/12 mx-auto flex flex-col items-center justify-center gap-10">
+    <main className="h-screen w-11/12 md:w-8/12 mx-auto flex flex-col items-center justify-center gap-10">
       <h1 className="mt-10 text-center text-4xl font-semibold">
         Youtube Trascript Extractor
       </h1>
 
-      <form className="w-8/12" onSubmit={handleSubmit}>
+      <form className="w-full md:w-8/12" onSubmit={handleSubmit}>
         <div className="border flex items-center overflow-hidden rounded-md">
           <label htmlFor="url" className="p-3 bg-slate-50 border-r">
             URL
@@ -63,13 +63,13 @@ export default function Home() {
           <input
             name="url"
             type="text"
-            className="w-full outline-1 outline-slate-400 py-3 pl-1"
+            className="w-full outline-1 outline-slate-400 py-3 pl-1 placeholder:text-sm md:placeholder:text-base"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://www.youtube.com/watch?v=abc"
           />
           <button
-            className="py-3 px-5 border-l bg-green-600 text-white"
+            className="hidden md:block py-3 px-5 border-l bg-green-600 text-white"
             disabled={loading}
             type="submit"
           >
@@ -82,7 +82,7 @@ export default function Home() {
       </form>
 
       <div className="w-full overflow-auto relative h-full text-justify border border-gray-500/20 rounded-lg shadow-sm flex flex-col justify-between mb-3">
-        <div className="overflow-scroll my-3 leading-7 first-letter:capitalize px-8 h-full">
+        <div className="overflow-scroll my-3 leading-7 first-letter:capitalize px-2 md:px-8 h-full">
           {loading ? <Loader /> : <p>{data}</p>}
         </div>
         {!summarized && (
